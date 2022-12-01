@@ -10,6 +10,7 @@ const count = $("#count");
 const total = $("#total");
 const movieSelect = $("#movie");
 
+let ticketValue = +movieSelect.value;
 //
 
 const updateSelectedCount = () => {
@@ -23,9 +24,13 @@ const updateSelectedCount = () => {
     // Hiển thị tổng số ghế đã chọn
     count.innerText = selectedSeatsCount;
     // Hiển thị tổng số tiền dựa trên số ghế đã chọn
-    total.innerText = selectedSeatsCount * 10;
+    total.innerText = selectedSeatsCount * ticketValue;
 };
 
+movieSelect.addEventListener("change", function (e) {
+    ticketValue = +e.target.value;
+    updateSelectedCount();
+});
 container.addEventListener("click", function (e) {
     // target là phần tử được click
     const target = e.target;
