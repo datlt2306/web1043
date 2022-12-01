@@ -16,7 +16,7 @@ let ticketValue = +movieSelect.value;
 const updateSelectedCount = () => {
     // Lấy tất cả các ghế đã được chọn có class là .seat và .selected
     const selectedSeats = document.querySelectorAll(".row .seat.selected");
-    // Lấy số ghế đã chọn
+    // Lấy số lượng ghế đã chọn
     const selectedSeatsCount = selectedSeats.length;
     // Hiển thị tổng số ghế đã chọn
     count.innerText = selectedSeatsCount;
