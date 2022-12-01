@@ -14,11 +14,8 @@ let ticketValue = +movieSelect.value;
 //
 
 const updateSelectedCount = () => {
+    // Lấy tất cả các ghế đã được chọn có class là .seat và .selected
     const selectedSeats = document.querySelectorAll(".row .seat.selected");
-    // Lấy vị trí ghế đã chọn
-    const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
-    // Lưu lại vị trí ghế đã chọn vào local storage
-    localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
     // Lấy số ghế đã chọn
     const selectedSeatsCount = selectedSeats.length;
     // Hiển thị tổng số ghế đã chọn
@@ -28,7 +25,9 @@ const updateSelectedCount = () => {
 };
 
 movieSelect.addEventListener("change", function (e) {
+    // Lấy giá vé
     ticketValue = +e.target.value;
+    // Gọi hàm updateSelectedCount để hiển thị lại tổng số tiền
     updateSelectedCount();
 });
 container.addEventListener("click", function (e) {
